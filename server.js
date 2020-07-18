@@ -10,7 +10,10 @@ const PORT = process.env.PORT || 3003;
 
 const app = express();
 
-// simple static api to serve index.html (could use express.static instead)
+// serve static files
+app.use(express.static('./client/src'));
+
+// simple static api to serve index.html
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './client/src/'));
 });

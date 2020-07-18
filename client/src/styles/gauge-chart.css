@@ -1,0 +1,52 @@
+/** 
+ * File: gauge-chart.css
+ * Desc: styles for the guage chart proto
+ */
+
+.page-title {
+  color: rgba(0, 153, 76, 1);
+  font-family: Arial, sans-serif;
+  font-size: 32px;
+  text-align: center;
+}
+
+.chart-container {
+  text-align: center;
+}
+
+.gauge-chart {
+  /* border: 1px dashed red; */
+  margin: 20px 50px;
+}
+
+.gauge-bezel-outer {
+  fill: none;
+  stroke: black;
+}
+
+.gauge-bezel-inner {
+  fill: none;
+  stroke: #cccccc;
+}
+
+.gauge-tick {
+  fill: none;
+  stroke: black;
+}
+
+.gauge-face,
+.gauge-tick-hider {
+  stroke-width: 0;
+  fill: white;
+}
+
+.gauge-needle {
+  stroke: #cd4120;
+  fill: #e57358;
+  opacity: 0.8;
+}
+
+.gauge-needle-cap {
+  stroke: #666666;
+  fill: #4684ee;
+}

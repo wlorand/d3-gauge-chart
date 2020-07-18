@@ -3,9 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>D3 Gauage Chart Example</title>
+    <title>D3 Gauge Chart Example</title>
+    <link rel="stylesheet" href="./styles/gauge-chart.css" />
   </head>
   <body>
-    <h1>D3 Gauge Chart Example</h1>
+    <h1 class="page-title">D3 Gauge Chart Example: Dead Show 7-18-1976</h1>
+
+    <div class="chart-container">
+      <svg id="setlistChart" width="150" height="150" class="gauge-chart"></svg>
+      <svg id="jamsChart" width="150" height="150" class="gauge-chart"></svg>
+      <svg
+        id="fidelityChart"
+        width="150"
+        height="150"
+        class="gauge-chart"
+      ></svg>
+    </div>
+
+    <script src="./scripts/bundle.js"></script>
   </body>
 </html>
