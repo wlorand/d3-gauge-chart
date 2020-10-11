@@ -1,4 +1,10 @@
 const d3 = require('d3');
+window.d3 = d3; // allow console log access to the d3 object
+
+/**
+ * renderGaugeChart -- declaritive D3 style - direct DOM manip
+ * @param {Object} chartObj
+ */
 
 function renderGaugeChart(chartObj) {
   // 1- d3 select the chart element and get the width
@@ -33,7 +39,7 @@ function renderGaugeChart(chartObj) {
   const lastTickAngle = 135; // end angle
   const tickSpacing = 13.5;
 
-  // 4- create d3 scale for the needle and set the data-driven angle
+  // 4- create d3 scale for needle, set data-driven angle to pixel space of .range()
   const needleScale = d3
     .scaleLinear()
     .domain([chartObj.min || 0, chartObj.max || 100])
@@ -115,7 +121,7 @@ function renderGaugeChart(chartObj) {
     .attr('font-size', labelFontSize)
     .text(chartObj.value);
 
-  // 5h: Needle
+  // 5h: Needle - very in the weeds with path drawing instructions (M,L,Z)
   const needle = chart
     .append('path')
     .attr('class', 'gauge-needle')
@@ -138,8 +144,8 @@ function renderGaugeChart(chartObj) {
     .attr('r', needleCapRadius);
 }
 
-// invoke the rendering of gauge charts
-function init() {
+// invoke the rendering of gauge charts - pass in config object
+function render() {
   renderGaugeChart({
     el: '#setlistChart',
     label: 'Setlist',
@@ -154,9 +160,10 @@ function init() {
 
   renderGaugeChart({
     el: '#fidelityChart',
-    label: 'Fidelity',
-    value: 76,
+    label: 'Sound',
+    value: 78,
   });
 }
 
-document.addEventListener('DOMContentLoaded', init);
+// Render Charts when DOM is loaded
+document.addEventListener('DOMContentLoaded', render);
